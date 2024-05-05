@@ -89,7 +89,7 @@ pipeline {
         stage('Build App Image') {
             steps {
                 script {
-                    dockerImage = sh 'docker build -t vprofile' ( appRegistry + ":$BUILD_NUMBER", "./Docker-files/app/multistage/")
+                   docker build -t vprofile ${appRegistry}:${BUILD_NUMBER} ./Docker-files/app/multistage/
                 }
             }
         }
